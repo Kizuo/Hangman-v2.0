@@ -1,5 +1,3 @@
-# word list pasted from https://www.hangmanwords.com/words
-
 hangman_words = '''
 abruptly
 absurd
@@ -172,7 +170,6 @@ topaz
 transcript
 transgress
 transplant
-triphthong
 twelfth
 twelfths
 unknown
