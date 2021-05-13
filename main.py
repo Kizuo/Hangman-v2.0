@@ -3,7 +3,7 @@ import random
 import images
 import words
 
-my_secret = os.environ['keyToAccess']
+my_secret = $word_$
 word = random.choice(words.hangman_words)
 word = word.upper()
 reveal = list(len(word)*'_')
