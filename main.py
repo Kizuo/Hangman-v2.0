@@ -1,12 +1,5 @@
-import os
-import random
-import images
-import words
+import os, random, images, words, wordseasy
 
-my_secret = $word_$
-word = random.choice(words.hangman_words)
-word = word.upper()
-reveal = list(len(word)*'_')
 lives = 7
 gameWon = False
 
@@ -22,19 +15,33 @@ def check_letter(letter,word):
         return False
 
 def status():
-    os.system("clear")
+    os.system('clear')
     print(images.hangman[7-lives])
     print(' '.join([str(e) for e in reveal]))
     print('\nYou have',lives,'lives.')
+    print('Missed letters:',missedLetters)
+
+diff = ''
+while not (diff == 'easy' or diff == 'hard'):
+    diff = input('What difficulty? [easy/hard] ') # HARD not working!
+    diff = diff.lower()
+
+    if diff == "hard":
+        word = random.choice(words.hangman_words)
+        word = word.upper()
+    elif diff == "easy":
+        word = random.choice(wordseasy.hangman_words_easy)
+        word = word.upper()
+    else: 
+        print('Invalid answer. Try again.')
+
+reveal = list(len(word)*'_')
 
 while gameWon == False and lives > 0:
     status()
     guess = input('Guess a letter or an entire word: ')
-    secretguess = guess
     guess = guess.upper()
-    if secretguess == my_secret:
-        gameWon = True
-    
+   
     if guess == word:
         gameWon = True
         reveal = word
@@ -45,6 +52,7 @@ while gameWon == False and lives > 0:
     status()
 
 if gameWon:
-    print('Well done! You are a winner! You ended with',lives,'lives!')
+    disdiff = diff.lower()
+    print('Well done! You are a winner! You ended with',lives,'lives on',disdiff,'difficulty!')
 else:
-    print('Oh no! You failed! The word was:', word)
+    print('Oh no! You failed! The word was:',word)
