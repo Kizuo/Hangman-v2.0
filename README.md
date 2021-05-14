@@ -9,5 +9,5 @@ Have a question? Need to request something? Contact me in these places:
 * [Delta135 on Scratch](https://scratch.mit.edu/users/Delta135)
 * [Kizuo on Repl.it](https://replit.com/@Kizuo)
 
-### **Me playing it (I died :sweat_smile:)**
+### **Me playing it**
 ![Hangman-v2.0](https://u.cubeupload.com/dinocoder/Screenshot2021051421.png)
