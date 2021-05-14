@@ -1,6 +1,7 @@
 import os, random, images, words, wordseasy
 
 lives = 7
+missedLetters = []
 gameWon = False
 
 def check_letter(letter,word):
@@ -19,7 +20,7 @@ def status():
     print(images.hangman[7-lives])
     print(' '.join([str(e) for e in reveal]))
     print('\nYou have',lives,'lives.')
-    print('Missed letters:',missedLetters)
+    print('Missed letters:',' '.join([str(x) for x in missedLetters]))
 
 diff = ''
 while not (diff == 'easy' or diff == 'hard'):
@@ -49,6 +50,7 @@ while gameWon == False and lives > 0:
         gameWon = check_letter(guess,word)
     else:
         lives -= 1
+        missedLetters.append(guess)
     status()
 
 if gameWon:
